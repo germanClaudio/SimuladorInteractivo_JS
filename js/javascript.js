@@ -1,4 +1,5 @@
 /*--- Simulador interactivo Cotizacion Transporte - CoderHouse - Javascript - German Montalbetti -----*/
+/*---------------------------------------- Proyecto Final ------------------------------------------*/
 /**Declaracion de variables */
 const precioPeso = 18.25;
 const precioKm = 3.95;
@@ -59,6 +60,7 @@ function limpiarForm(){
 
 	document.getElementById('salida').innerHTML = "";
 	document.getElementById('datos').innerHTML = "";
+	document.getElementById('message3').innerHTML = "";
 }
 
 /*----------------------------- Evento select -------------------------*/
@@ -78,23 +80,23 @@ function habilitarBtnSubmit() {
 
 /*---------------- Evento campo valor declarado ----------------------*/
 var campoValorDeclarado = document.getElementById('inputValorDeclarado');
-campoValorDeclarado.addEventListener("keypress", soloNumeros, false);
+campoValorDeclarado.addEventListener("keypress", soloNumerosValorDeclarado, false);
 campoValorDeclarado.addEventListener('input', habilitarCampoValorDeclarado);
 
 function habilitarCampoValorDeclarado() {
 	
-	if (campoValorDeclarado == "") {
+	if (campoValorDeclarado.value == "" || campoValorDeclarado.value == null) {
 		document.getElementById('botonSubmit').disabled = true;
-		document.getElementById('inputPesoDeclarado').disabled = true; 
+		document.getElementById('botonSubmit').style.opacity = (0.4);
 	} else {
 		document.getElementById('inputPesoDeclarado').disabled = false;
 	}
 }
 
 //Solo permite introducir numeros y el "."
-function soloNumeros(e){
+function soloNumerosValorDeclarado(e){
 	var key = window.event ? e.which : e.keyCode;
-	console.log("tecla: " + key);
+	
 	if (key < 46 || key > 57) {
 	  e.preventDefault();
 	} 
@@ -104,51 +106,64 @@ function soloNumeros(e){
 /*---------------- Evento campo Peso carga declarado ----------------------*/
 var campoPesoDeclarado = document.getElementById('inputPesoDeclarado');
 campoPesoDeclarado.addEventListener('input', habilitarCampoPesoDeclarado);
-campoPesoDeclarado.addEventListener("keypress", soloNumerosPeso, false);
+campoPesoDeclarado.addEventListener("keypress", soloNumeros, false);
 
 function habilitarCampoPesoDeclarado() {
-	if (campoPesoDeclarado == "") {
+	if (campoPesoDeclarado.value == "" || campoPesoDeclarado.value == null) {
 		document.getElementById('botonSubmit').disabled = true;
-		document.getElementById('inputTrayecto').disabled = true; 
+		document.getElementById('botonSubmit').style.opacity = (0.4);
 	} else {
 		document.getElementById('inputTrayecto').disabled = false;
 	}
 }
 
 //Solo permite introducir numeros
-function soloNumerosPeso(e){
+function soloNumeros(e){
 	var key = window.event ? e.which : e.keyCode;
-	console.log("tecla: " + key);
+	
 	if (key < 48 || key > 57) {
 	  e.preventDefault();
 	} 
   }
 
 /*----------------------- Evento campo trayecto --------------------------*/
-var campoFechaSalida = document.getElementById('inputTrayecto');
-campoFechaSalida.addEventListener('change', habilitarCampoFecha);
-campoFechaSalida.addEventListener("keypress", soloNumerosTrayecto, false);
+var campoInputTrayecto = document.getElementById('inputTrayecto');
+campoInputTrayecto.addEventListener('input', habilitarCampoFecha);
+campoInputTrayecto.addEventListener('keypress', soloNumeros, false);
+campoInputTrayecto.addEventListener('change', habilitarFocus);
 
 function habilitarCampoFecha() {
 
-	if (campoFechaSalida.value == "today") {
+	if (campoInputTrayecto.value == "" || campoInputTrayecto.value == null) {
 		document.getElementById('botonSubmit').disabled = true;
-		document.getElementById('fecha').disabled = true; 
+		document.getElementById('botonSubmit').style.opacity = (0.4);
+		 
 	} else {
-		document.getElementById('botonSubmit').disabled = false;
-		document.getElementById('botonSubmit').style.opacity = (1);
 		document.getElementById('fecha').disabled = false;
 	}
 }
 
-//Solo permite introducir numeros
-function soloNumerosTrayecto(e){
-	var key = window.event ? e.which : e.keyCode;
-	console.log("tecla: " + key);
-	if (key < 48 || key > 57) {
-	  e.preventDefault();
-	} 
-  }
+function habilitarFocus(){
+	document.getElementById('fecha').focus();
+}
+
+
+/*----------------------- Evento campo fecha --------------------------*/
+var campoInputFecha = document.getElementById('fecha');
+campoInputFecha.addEventListener('change', habilitarBotonSubmit);
+
+function habilitarBotonSubmit() {
+
+	if (campoInputFecha.value == "" || campoInputFecha.value == null) {
+		document.getElementById('botonSubmit').disabled = true;
+		document.getElementById('botonSubmit').style.opacity = (0.4);
+		
+	} else {
+		document.getElementById('botonSubmit').disabled = false;
+		document.getElementById('botonSubmit').style.opacity = (1);
+	}
+}
+
 
 /*------ Evento limitar fecha de salida carga no menor a hoy -----------*/
 var limitarFecha = document.getElementById('fecha');
@@ -216,7 +231,7 @@ class Producto {
 		}
 		else {
 			Toastify({
-				text: "Debe ingresar un dato numerico para Valor declarado!",
+				text: "Debe ingresar un dato numerico para Valor Declarado!",
 				duration: 2500,
 				destination: "#",
 				// newWindow: true,
@@ -374,21 +389,21 @@ function obtenerDatosForm() {
 				}	
 				
 			
-				if ((tipoTransporte == "E") && trayecto <= 200) {
+				if ((tipoTransporte == "E") && trayecto <= 250) {
 					var dias = 3;
-					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()} </li><span class="badge rounded-pill bg-success">${dias-1} días</span> destino en radio menor a 200Km<br><br></div>`);
+					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()} </li><span class="badge rounded-pill bg-success">${dias-1} días</span> destino en radio menor a 250Km<br><br></div>`);
 				}
-				else if ((tipoTransporte == "E") && trayecto > 200 ) {
+				else if ((tipoTransporte == "E") && trayecto > 250 ) {
 					var dias = 4;
-					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-info"> ${dias-1} días</span> destino en radio mayor a 200Km<br><br></div>`);
+					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-info"> ${dias-1} días</span> destino en radio mayor a 250Km<br><br></div>`);
 				}
-				else if ((tipoTransporte == "C") && trayecto <= 200 ) {
+				else if ((tipoTransporte == "C") && trayecto <= 250 ) {
 					var dias = 6;
-					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-dark"> ${dias-1} días</span> destino en radio menor a 200Km<br><br></div>`);
+					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-dark"> ${dias-1} días</span> destino en radio menor a 250Km<br><br></div>`);
 				}
 				else {
 					var dias = 8;
-					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-danger"> ${dias-1} días</span> destino en radio mayor a 200Km<br><br></div>`);
+					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-danger"> ${dias-1} días</span> destino en radio mayor a 250Km<br><br></div>`);
 				}
 			};
 
@@ -400,11 +415,11 @@ function obtenerDatosForm() {
 										El <b>Precio Total</b> del transporte del producto<br><strong> ${result[3]} </strong><br>es: <strong>$ ${precioTotal} </strong>
 									</div>
 									<div class="contenedorBotones" id="contenedorBotones">  
-										<button type="button" class="btn btn-secondary my-3 me-2" style="width: 8rem" onclick="recotizar();">Recotizar <i class="fa fa-usd"></i></button> 
 										<button id="destinos" type="button" class="btn btn-success my-3 mx-2" style="width: 13rem" title="Ver destinos posibles, respecto trayecto ingresado" >Ver destinos posibles <i class="fa fa-map-marker" aria-hidden="true"></i></button>
+										<button id="recotizar" type="button" class="btn btn-secondary my-3 me-2" style="width: 8rem" onclick="recotizar()">Recotizar <i class="fa fa-usd"></i></button>  
 										<button type="button" class="btn btn-danger my-3 ms-2" style="width: 8rem" onclick="cerrar_pagina();">Salir <i class="fa fa-sign-out"></i></button>
 									</div>`);
-		
+																														
 		/*-------- funcion para ver los destinos posibles según distancia ingresada -------------------*/
 
 		var destinos = document.getElementById('destinos');
@@ -436,7 +451,7 @@ function obtenerDatosForm() {
 
 						let listaDestinos = document.createElement('div');
 						listaDestinos.classList.add('row');
-					
+						
 							if (destinosFiltrados.length > 0) {
 							datos.innerHTML = (`Centros de Distribución posibles según distancia ingresada (${trayecto} Km. mas un radio de ${radio} Km)`);
 		
@@ -532,7 +547,26 @@ function obtenerDatosForm() {
 								/*------------------------- fin Local Storge sigue en javascriptHistorial.js------------------------*/
 							
 						} else {
+							
 							listaDestinos.innerHTML = (`No existen Centros de Distribución posibles con el dato ingresado!!`);
+							Toastify({
+								text: "No existen Centros de Distribución posibles con el dato ingresado!!",
+								duration: 2750,
+								destination: "#",
+								// newWindow: true,
+								close: true,
+								gravity: "bottom", // `top` or `bottom`
+								position: "center", // `left`, `center` or `right`
+								stopOnFocus: true, // Prevents dismissing of toast on hover
+								style: {
+								  background: "linear-gradient(to right,  #e52d4d, #da2f54, #70111f, #620810)",
+								},
+								offset: {
+								  x: 10, // horizontal axis
+								  y: 50, // vertical axis
+								},
+								// onClick: function(){} // Callback after click
+							  }).showToast();
 							document.getElementById('datosRow').appendChild(listaDestinos);
 							document.getElementById('inputTrayecto').focus();
 						}
@@ -545,17 +579,20 @@ function obtenerDatosForm() {
 
 /* ------- funciones para botones --------- */
 function recotizar(){
-	location.reload('index.html');
+		location.reload('index.html');
 }
-								
+		
+var btnSalida = document.getElementById('cerrarPagina');
+btnSalida.addEventListener('click',cerrar_pagina);
+
 function cerrar_pagina() {
 	Swal.fire({
 		title: 'Realmente quieres cerrar esta página?',
 		text: "Lo extrañaremos!",
 		icon: 'warning',
 		showCancelButton: true,
-		confirmButtonColor: '#3085d6',
-		cancelButtonColor: '#d33',
+		confirmButtonColor: '#d33',
+		cancelButtonColor: '#308530',
 		cancelButtonText: 'Me quedo',
 		confirmButtonText: 'Si, Salir'
 	  }).then((result) => {
@@ -568,9 +605,11 @@ function cerrar_pagina() {
 
 let contenedor = document.getElementById("salida");
 
-//var body = document.body.addEventListener("load", inicio);						
+var body = document.getElementById('body');
+body.addEventListener("load",inicio);						
 
 function inicio() {
+	console.log("inicio.....");
 	document.getElementById('inputNombreProducto').focus();
 	document.getElementById('botonSubmit').disabled = true;
 	document.getElementById('botonSubmit').style.opacity = (0.4);

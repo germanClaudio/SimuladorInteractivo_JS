@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/style.css">
 </head>
 
-<body onload="inicio();">
+ <body id="body" onload="inicio();">
     <h1 class="tituloGeneral">Simulador Interactivo Cotización Transporte II - <strong>German Montalbetti</strong></h1>
     <h2 class="tituloSecundario">Formulario Ingreso Registros - CoderHouse - Javascript</h2>
     <hr>
@@ -115,6 +115,7 @@
                         <button id="botonSubmit" type="button" class="btn btn-primary mx-3" disabled="disabled">Calcular <i class="fa fa-floppy-o" aria-hidden="true"></i></button>
                         <button id="reseteo" type="reset" class="btn btn-danger mx-3">Reset <i class="fa fa-refresh" aria-hidden="true"></i></button>
                     </div>
+                    
                 </form>
             </div>
         </div>
@@ -132,6 +133,11 @@
         <a  href="./pages/historial.html" id="cargaStorage" class="btn btn-primary mx-3">Historial <i class="fa fa-history" aria-hidden="true"></i></a>
         <a  href="./pages/centros.html" id="verCentros" class="btn btn-secondary mx-3">Ver Centros <i class="fa fa-gear" aria-hidden="true"></i></a>
     </div>
+
+    <div class="d-block mx-auto my-3 text-center">
+        <button id="cerrarPagina" type="button" class="btn btn-danger my-3 ms-2" style="width: 10rem";">Salir <i class="fa fa-sign-out"></i></button>                  
+    </div>
+    
     
     <!-- framework o librerias de css-->
     

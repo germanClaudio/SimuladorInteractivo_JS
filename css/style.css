@@ -1,0 +1,136 @@
+/* ------ reseteo navegador ---------------*/
+* {
+	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
+}
+
+html {
+    line-height: 1.15; /* 1 */
+    -webkit-text-size-adjust: 100%; /* 2 */
+  }
+  
+body {
+   margin: 0;
+   background-color: #e9e9e9;
+  }
+
+.tituloGeneral {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: .5em auto;
+    font-size: 2em;
+    color: #869dc9;
+    letter-spacing: .5px;
+    background-color: #464646;
+    padding-top: .5em;
+    padding-bottom: .5em; 
+}
+
+.tituloSecundario {
+    text-align: center;
+    margin: 1.5rem auto;
+}
+
+.wrap {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: .75em auto;
+  font-size: 2em;
+}
+
+#contenedorFormulario{
+    margin: 1em auto;
+    padding: 1em 2em;
+    line-height: 2rem;
+    max-width: 80%;
+    background-color: #bfe7f3;
+}
+
+.datos {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    text-align: center;
+    margin: 1em auto;
+    padding: 1em 2em;
+    line-height: 2rem;
+    max-width: 80%;
+    background-color: #76b4fc;
+    opacity: 0;
+
+}
+
+.datos div h3 {
+  font-size: 1rem;
+}
+
+.salida {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 1em auto;
+  padding-top: .5em;
+  line-height: 2rem;
+}
+
+.historial {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 1em auto;
+  padding-top: .5em;
+  line-height: 2rem;
+  max-width: 90%;
+}
+
+.centros {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 1em auto;
+  padding-top: .5em;
+  line-height: 2rem;
+  max-width: 90%;
+}
+
+.btn {
+  width: 10rem;
+
+}
+
+.message {
+  font-size: .85rem;
+  display: block;
+  color: #f00;
+}
+
+
+.containerBoton {
+  display: block;
+  margin: 3em auto;
+  padding: .5em auto;
+  text-align: center;
+}
+
+
+.mostrarHistorial {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 1em auto;
+  padding-top: .5em;
+  line-height: 2rem;
+  max-width: 95%;
+}
+
+.mostrarCentros {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  text-align: center;
+  margin: 1em auto;
+  padding-top: .75em;
+  line-height: 1rem;
+  max-width: 90%;
+}
+
+.alert{
+  text-align: center;
+  margin: 2em auto;
+  padding-top: .5em;
+  line-height: 2rem;
+  max-width: 50%;
+}

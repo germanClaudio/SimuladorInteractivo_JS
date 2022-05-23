@@ -1,0 +1,433 @@
+[{
+    "id": 0,
+    "nombre": "Santa Fe",
+    "distancia": 330,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 3,
+        "utilitarios": 5,
+        "motos": 9
+    }]
+},
+{
+    "id": 1,
+    "nombre": "Paraná",
+    "distancia": 359,
+    "telefono": "555 55555",
+    "asistentes": 12,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 6,
+        "motos": 10
+    }]
+},
+{
+    "id": 2,
+    "nombre": "Rosario",
+    "distancia": 406,
+    "telefono": "555 55555",
+    "asistentes": 15,
+    "flota": [{
+        "camiones": 4,
+        "utilitarios": 6,
+        "motos": 15
+    }]
+},
+{
+    "id": 3,
+    "nombre": "Buenos Aires",
+    "distancia": 650,
+    "telefono": "555 55555",
+    "asistentes": 35,
+    "flota": [{
+        "camiones": 13,
+        "utilitarios": 14,
+        "motos": 26
+    }]
+},
+{
+    "id": 4,
+    "nombre": "CABA",
+    "distancia": 703,
+    "telefono": "555 55555",
+    "asistentes": 29,
+    "flota": [{
+        "camiones": 6,
+        "utilitarios": 20,
+        "motos": 29
+    }]
+},
+{
+    "id": 5,
+    "nombre": "La Plata",
+    "distancia": 788,
+    "telefono": "555 55555",
+    "asistentes": 22,
+    "flota": [{
+        "camiones": 12,
+        "utilitarios": 24,
+        "motos": 16
+    }]
+},
+{
+    "id": 6,
+    "nombre": "Mar del PLata",
+    "distancia": 1086,
+    "telefono": "555 55555",
+    "asistentes": 9,
+    "flota": [{
+        "camiones": 3,
+        "utilitarios": 11,
+        "motos": 11
+    }]
+},
+{
+    "id": 7,
+    "nombre": "Santa Rosa",
+    "distancia": 630,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 7,
+        "motos": 6
+    }]
+},
+{
+    "id": 8,
+    "nombre": "San Luis",
+    "distancia": 460,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 4,
+        "motos": 9
+    }]
+},
+{
+    "id": 9,
+    "nombre": "Mendoza",
+    "distancia": 650,
+    "telefono": "555 55555",
+    "asistentes": 10,
+    "flota": [{
+        "camiones": 3,
+        "utilitarios": 6,
+        "motos": 8
+    }]
+},
+{
+    "id": 10,
+    "nombre": "Tucumán",
+    "distancia": 520,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 5,
+        "motos": 7
+    }]
+},
+{
+    "id": 11,
+    "nombre": "Corrientes",
+    "distancia": 895,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 6,
+        "motos": 9
+    }]
+},
+{
+    "id": 12,
+    "nombre": "San Juan",
+    "distancia": 447,
+    "telefono": "555 55555",
+    "asistentes": 7,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 7,
+        "motos": 11
+    }]
+},
+{
+    "id": 13,
+    "nombre": "Salta",
+    "distancia": 913,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 3,
+        "motos": 4
+    }]
+},
+{
+    "id": 14,
+    "nombre": "Catamarca",
+    "distancia": 433,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 2,
+        "motos": 5
+    }]
+},
+{
+    "id": 15,
+    "nombre": "S.S. Jujuy",
+    "distancia": 1020,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 2,
+        "motos": 3
+    }]
+},
+{
+    "id": 16,
+    "nombre": "Posadas",
+    "distancia": 1129,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 4,
+        "motos": 8
+    }]
+},
+{
+    "id": 17,
+    "nombre": "Resistencia",
+    "distancia": 831,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 4,
+        "motos": 6
+    }]
+},
+{
+    "id": 18,
+    "nombre": "Bariloche",
+    "distancia": 1973,
+    "telefono": "555 55555",
+    "asistentes": 9,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 5,
+        "motos": 6
+    }]
+},
+{
+    "id": 19,
+    "nombre": "Viedma",
+    "distancia": 1206,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 10,
+        "motos": 4
+    }]
+},
+{
+    "id": 20,
+    "nombre": "Comodoro Rivadavia",
+    "distancia": 2159,
+    "telefono": "555 55555",
+    "asistentes": 6,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 13,
+        "motos": 2
+    }]
+},
+{
+    "id": 21,
+    "nombre": "Ushuaia",
+    "distancia": 3477,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 24,
+        "motos": 2
+    }]
+},
+{
+    "id": 22,
+    "nombre": "Rafaela",
+    "distancia": 292,
+    "telefono": "555 55555",
+    "asistentes": 9,
+    "flota": [{
+        "camiones": 6,
+        "utilitarios": 11,
+        "motos": 8
+    }]
+},
+{
+    "id": 23,
+    "nombre": "Rio Cuarto",
+    "distancia": 203,
+    "telefono": "555 55555",
+    "asistentes": 15,
+    "flota": [{
+        "camiones": 11,
+        "utilitarios": 14,
+        "motos": 19
+    }]
+},
+{
+    "id": 24,
+    "nombre": "San Francisco",
+    "distancia": 204,
+    "telefono": "555 55555",
+    "asistentes": 18,
+    "flota": [{
+        "camiones": 4,
+        "utilitarios": 9,
+        "motos": 13
+    }]
+},
+{
+    "id": 25,
+    "nombre": "Carlos Paz",
+    "distancia": 30,
+    "telefono": "555 55555",
+    "asistentes": 8,
+    "flota": [{
+        "camiones": 2,
+        "utilitarios": 6,
+        "motos": 8
+    }]
+},
+{
+    "id": 26,
+    "nombre": "Villa Maria",
+    "distancia": 138,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 3,
+        "utilitarios": 4,
+        "motos": 6
+    }]
+},
+{
+    "id": 27,
+    "nombre": "Jesús María",
+    "distancia": 41,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 5,
+        "motos": 6
+    }]
+},
+{
+    "id": 28,
+    "nombre": "Alta Gracia",
+    "distancia": 38,
+    "telefono": "555 55555",
+    "asistentes": 5,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 5,
+        "motos": 7
+    }]
+},
+{
+    "id": 29,
+    "nombre": "Esperanza",
+    "distancia": 364,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 2,
+        "motos": 4
+    }]
+},
+{
+    "id": 30,
+    "nombre": "Cosquín",
+    "distancia": 46,
+    "telefono": "555 55555",
+    "asistentes": 2,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 1,
+        "motos": 3
+    }]
+},
+{
+    "id": 31,
+    "nombre": "La Cumbre",
+    "distancia": 78,
+    "telefono": "555 55555",
+    "asistentes": 2,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 2,
+        "motos": 3
+    }]
+},
+{
+    "id": 32,
+    "nombre": "La Falda",
+    "distancia": 66,
+    "telefono": "555 55555",
+    "asistentes": 2,
+    "flota": [{
+        "camiones": 0,
+        "utilitarios": 2,
+        "motos": 2
+    }]
+},
+{
+    "id": 33,
+    "nombre": "Embalse",
+    "distancia": 110,
+    "telefono": "555 55555",
+    "asistentes": 3,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 2,
+        "motos": 4
+    }]
+},
+{
+    "id": 34,
+    "nombre": "Santa Rosa",
+    "distancia": 100,
+    "telefono": "555 55555",
+    "asistentes": 2,
+    "flota": [{
+        "camiones": 1,
+        "utilitarios": 2,
+        "motos": 4
+    }]
+},
+{
+    "id": 35,
+    "nombre": "Arroyito",
+    "distancia": 124,
+    "telefono": "555 55555",
+    "asistentes": 4,
+    "flota": [{
+        "camiones": 3,
+        "utilitarios": 4,
+        "motos": 5
+    }]
+}
+    ]	

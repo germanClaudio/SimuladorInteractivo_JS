@@ -18,6 +18,7 @@
     <!-- mis estilos -->
     <link rel="stylesheet" href="../css/style.css">
 </head>
+
 <body>
     <h1 class="tituloGeneral">Simulador Interactivo Cotización Transporte II - <strong>German Montalbetti</strong></h1>
     <h2 class="tituloSecundario">Historial - CoderHouse - Javascript</h2>
@@ -27,43 +28,47 @@
             <caption id="cantidadRegistros"> </caption>
             <thead>
                 <tr>
-                  <th scope="col">ID</th>
-                  <th scope="col">Nombre</th>
-                  <th scope="col">Tipo Carga</th>
-                  <th scope="col">Peso Carga</th>
-                  <th scope="col">Trayecto</th>
-                  <th scope="col">Transporte</th>
-                  <th scope="col">Valor Carga</th>
-                  <th scope="col">Fecha Salida</th>
-                  <th scope="col">Destino</th>
-                  <th scope="col">Distancia</th>
-                  <th scope="col">Fecha y Hora Registro</th>
-                  <th scope="col">Acción</th>
+                    <th scope="col">ID</th>
+                    <th scope="col">Nombre</th>
+                    <th scope="col">Tipo Carga</th>
+                    <th scope="col">Peso Carga</th>
+                    <th scope="col">Trayecto</th>
+                    <th scope="col">Transporte</th>
+                    <th scope="col">Valor Carga</th>
+                    <th scope="col">Fecha Salida</th>
+                    <th scope="col">Destino</th>
+                    <th scope="col">Distancia</th>
+                    <th scope="col">Fecha y Hora Registro</th>
+                    <th scope="col">Acción</th>
                 </tr>
-              </thead>
-              <tbody id="tbodyDatos">
-                
-              </tbody>
-          </table>
+            </thead>
+            <tbody id="tbodyDatos">
+
+            </tbody>
+        </table>
     </div>
     <div class="containerBoton">
-        <button class="btn btn-success mx-3" id="verHistorial" type="button">Ver Historial <i class="fa fa-history"></i></button>
-        <button class="btn btn-primary mx-3" id="borrarRegistro" type="button" disabled="true">Eliminar Key <i class="fa fa-eraser"></i></button>
-        <button class="btn btn-danger mx-3" id="borrarHistorial" type="button" disabled="true">Borrar Historial <i class="fa fa-trash"></i></button>
+        <button class="btn btn-success mx-3" id="verHistorial" type="button">Ver Historial <i
+                class="fa fa-history"></i></button>
+        <button class="btn btn-primary mx-3" id="borrarRegistro" type="button" disabled="true">Eliminar Key <i
+                class="fa fa-eraser"></i></button>
+        <button class="btn btn-danger mx-3" id="borrarHistorial" type="button" disabled="true">Borrar Historial <i
+                class="fa fa-trash"></i></button>
         <a href="../index.html" type="button" class="btn btn-secondary mx-3">Volver <i class="fa fa-sign-out"></i></a>
     </div>
 
     <div class="alertas" id="alertas">
 
     </div>
-    
+
     <!-- framework o librerias de css-->
-    
+
     <!-- librerias -->
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
     <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
     <!-- script personales -->
     <script src="../js/javascriptHistorial.js"></script>
-    
+
 </body>
+
 </html>

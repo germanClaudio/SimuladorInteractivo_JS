@@ -19,9 +19,15 @@ function mostarStorage() {
   borrarRegistro.disabled = cantidadItemsHistorial > 0 ? false : true;
 
   if (cantidadItemsHistorial > 0) {
+    /*------------------- Simula conexión lenta a Servidor -------------------------*/
+    function delay (ms) {
+      return new Promise((resolve) => setTimeout(resolve,ms));
+    }
 
+    async function simulacion () {
     for (const dato of datosHistorial) {
-
+      var serverTime = Math.random()*800;
+					await delay(serverTime);
       if (datosHistorial) {
 
         dato[0].tipoTransporte === "E" ? banderaTipoTransporte = "danger" : banderaTipoTransporte = "success";
@@ -52,7 +58,8 @@ function mostarStorage() {
                                         </tr>`);
       }
     };
-
+  }
+    simulacion();
     verHistorial.disabled = true;
     verHistorial.style.opacity = (0.4);
     borrarHistorial.disabled = false;
@@ -66,6 +73,7 @@ function mostarStorage() {
     verHistorial.disabled = true;
     verHistorial.style.opacity = (0.4);
   }
+
 };
 
 function confirmDelete(index, variabledato, contador) {
@@ -133,7 +141,7 @@ borrarRegistro.addEventListener('click', () => {
       position: "right", // `left`, `center` or `right`
       stopOnFocus: true, // Prevents dismissing of toast on hover
       style: {
-        background: "linear-gradient(to right, #00b09b, #96c93d)",
+        background: "linear-gradient(to right, #FF203d, #96733d)",
       },
       offset: {
         x: 10, // horizontal axis

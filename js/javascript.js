@@ -1,5 +1,5 @@
-/*--- Simulador interactivo Cotizacion Transporte 2 - Javascript - German Montalbetti -----*/
-
+/*--- Simulador interactivo Cotizacion Transporte - CoderHouse - Javascript - German Montalbetti -----*/
+/**Declaracion de variables */
 const precioPeso = 18.25;
 const precioKm = 3.95;
 var descuento = 0;
@@ -78,9 +78,11 @@ function habilitarBtnSubmit() {
 
 /*---------------- Evento campo valor declarado ----------------------*/
 var campoValorDeclarado = document.getElementById('inputValorDeclarado');
-campoValorDeclarado.addEventListener('input', habilitarCampoValorDeclarado)
+campoValorDeclarado.addEventListener("keypress", soloNumeros, false);
+campoValorDeclarado.addEventListener('input', habilitarCampoValorDeclarado);
 
 function habilitarCampoValorDeclarado() {
+	
 	if (campoValorDeclarado == "") {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('inputPesoDeclarado').disabled = true; 
@@ -89,9 +91,20 @@ function habilitarCampoValorDeclarado() {
 	}
 }
 
+//Solo permite introducir numeros y el "."
+function soloNumeros(e){
+	var key = window.event ? e.which : e.keyCode;
+	console.log("tecla: " + key);
+	if (key < 46 || key > 57) {
+	  e.preventDefault();
+	} 
+  }
+
+
 /*---------------- Evento campo Peso carga declarado ----------------------*/
 var campoPesoDeclarado = document.getElementById('inputPesoDeclarado');
-campoPesoDeclarado.addEventListener('input', habilitarCampoPesoDeclarado)
+campoPesoDeclarado.addEventListener('input', habilitarCampoPesoDeclarado);
+campoPesoDeclarado.addEventListener("keypress", soloNumerosPeso, false);
 
 function habilitarCampoPesoDeclarado() {
 	if (campoPesoDeclarado == "") {
@@ -102,11 +115,22 @@ function habilitarCampoPesoDeclarado() {
 	}
 }
 
+//Solo permite introducir numeros
+function soloNumerosPeso(e){
+	var key = window.event ? e.which : e.keyCode;
+	console.log("tecla: " + key);
+	if (key < 48 || key > 57) {
+	  e.preventDefault();
+	} 
+  }
+
 /*----------------------- Evento campo trayecto --------------------------*/
 var campoFechaSalida = document.getElementById('inputTrayecto');
-campoFechaSalida.addEventListener('change', habilitarCampoFecha)
+campoFechaSalida.addEventListener('change', habilitarCampoFecha);
+campoFechaSalida.addEventListener("keypress", soloNumerosTrayecto, false);
 
 function habilitarCampoFecha() {
+
 	if (campoFechaSalida.value == "today") {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('fecha').disabled = true; 
@@ -116,6 +140,15 @@ function habilitarCampoFecha() {
 		document.getElementById('fecha').disabled = false;
 	}
 }
+
+//Solo permite introducir numeros
+function soloNumerosTrayecto(e){
+	var key = window.event ? e.which : e.keyCode;
+	console.log("tecla: " + key);
+	if (key < 48 || key > 57) {
+	  e.preventDefault();
+	} 
+  }
 
 /*------ Evento limitar fecha de salida carga no menor a hoy -----------*/
 var limitarFecha = document.getElementById('fecha');
@@ -160,9 +193,6 @@ class Producto {
 		else if (this.tipo == "peligro") {
 			tipoCarga = [5, "Peligroso", "danger"];
 		}
-		else {
-			alert('Indique tipo de carga "Normal, Fragil, Cuidado o Peligro"!');
-		}
 		return tipoCarga;
 	}
 
@@ -185,7 +215,25 @@ class Producto {
 			valorDeclarado = [5, this.valor];
 		}
 		else {
-			alert('Indique un valor declarado de su carga ($)!');
+			Toastify({
+				text: "Debe ingresar un dato numerico para Valor declarado!",
+				duration: 2500,
+				destination: "#",
+				// newWindow: true,
+				close: true,
+				gravity: "top", // `top` or `bottom`
+				position: "center", // `left`, `center` or `right`
+				stopOnFocus: true, // Prevents dismissing of toast on hover
+				style: {
+				  background: "linear-gradient(to right,  #e52d4d, #da2f54, #ce325b, #c2365f, #b53963, #aa355c, #a03255, #952e4e, #89243d, #7d1a2e, #70111f, #620810)",
+				},
+				offset: {
+				  x: 10, // horizontal axis
+				  y: 50, // vertical axis
+				},
+				// onClick: function(){} // Callback after click
+			  }).showToast();
+			  remover();
 		}
 		return valorDeclarado;			
 	}
@@ -248,8 +296,25 @@ function obtenerDatosForm() {
 										<li>Precio por carga <span class="badge bg-secondary"> ${result[0]} Kg.</span> es: $${precioPorKilo.toFixed(2)}</li>
 									</ul>`);
 		} else {
-			alert('Debe ingresar un dato positivo para el peso de carga y el trayecto!');
-			remover();
+			Toastify({
+				text: "Debe ingresar un dato numerico para Peso de Carga y/o trayecto!",
+				duration: 2500,
+				//destination: "#",
+				// newWindow: true,
+				close: true,
+				gravity: "top", // `top` or `bottom`
+				position: "center", // `left`, `center` or `right`
+				stopOnFocus: true, // Prevents dismissing of toast on hover
+				style: {
+				  background: "linear-gradient(to right, #DC2424 0%, #4A569D  51%, #DC2424  100%)",
+				},
+				offset: {
+				  x: 10, // horizontal axis
+				  y: 50, // vertical axis
+				},
+				// onClick: function(){} // Callback after click
+			  }).showToast();
+			  remover();
 		}
 
 		var precioPorKilometro = parseFloat(result[1] * precioKm);

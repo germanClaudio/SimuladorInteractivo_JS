@@ -1,5 +1,5 @@
 /*--- Simulador interactivo Cotizacion Transporte 2 - Javascript - German Montalbetti -----*/
-/*---------------------------------------- Fetch ------------------------------------------*/
+/*---------------------------------------- Proyecto Final ------------------------------------------*/
 
 let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');
 	verCentrosDistribucion.addEventListener('click', buscarDestinos);
@@ -15,7 +15,7 @@ let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');
 		const mostrarData = (data) => {
 			
 			function delay (ms) {
-				return new Promise((resolve/*,reject*/) => setTimeout(resolve,ms));
+				return new Promise((resolve) => setTimeout(resolve,ms));
 			}
 			/*------------------- Simula conexión lenta a Servidor -------------------------*/
 			async function simulacion () {

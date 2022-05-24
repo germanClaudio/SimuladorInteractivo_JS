@@ -1,4 +1,4 @@
-/*--- Simulador interactivo Cotizacion Transporte 2 - Javascript - German Montalbetti -----*/
+/*--- Simulador interactivo Cotizacion Transporte - Javascript - German Montalbetti -----*/
 /*---------------------------------------- Proyecto Final ------------------------------------------*/
 
 let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');

@@ -1,4 +1,4 @@
-/*--- Simulador interactivo Cotizacion Transporte 2 - Javascript - German Montalbetti -----*/
+/*--- Simulador interactivo Cotizacion Transporte - Javascript - German Montalbetti -----*/
 /*---------------------------------------- Proyecto Final ------------------------------------------*/
 
 /**Declaracion de variables */
@@ -28,7 +28,7 @@ function mostarStorage() {
 
     async function simulacion() {
       for (const dato of datosHistorial) {
-        var serverTime = Math.random() * 800;
+        var serverTime = Math.random() * 700;
         await delay(serverTime);
         if (datosHistorial) {
 

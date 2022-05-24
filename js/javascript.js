@@ -61,6 +61,8 @@ function limpiarForm(){
 	document.getElementById('salida').innerHTML = "";
 	document.getElementById('datos').innerHTML = "";
 	document.getElementById('message3').innerHTML = "";
+	document.getElementById('datos').style.opacity = (0);
+	document.getElementById('inputNombreProducto').focus();
 }
 
 /*----------------------------- Evento select -------------------------*/
@@ -101,7 +103,6 @@ function soloNumerosValorDeclarado(e){
 	  e.preventDefault();
 	} 
   }
-
 
 /*---------------- Evento campo Peso carga declarado ----------------------*/
 var campoPesoDeclarado = document.getElementById('inputPesoDeclarado');
@@ -275,12 +276,15 @@ function update() {
 var botonSubmit = document.getElementById('botonSubmit');
 botonSubmit.addEventListener("click", obtenerDatosForm);
 
+
 /**--------------------- funcion para obtener datos del form ------------------------------- */
 function obtenerDatosForm() {
+
 		var pesoCarga = document.getElementById('inputPesoDeclarado').value;
 		var trayecto = document.getElementById('inputTrayecto').value;
 		var tipoTransporteExclusivo = document.getElementById('gridRadios1').value;
 		var tipoTransporteComun = document.getElementById('gridRadios2').value;
+		var container = document.getElementById('salida');
 		var tipoTransporte;
 		
 		document.getElementById('gridRadios1').checked ? tipoTransporte=tipoTransporteExclusivo : tipoTransporte=tipoTransporteComun;
@@ -301,8 +305,6 @@ function obtenerDatosForm() {
 		var fecha = document.getElementById('fecha').value;
 		
 		var result = [pesoCarga, trayecto, tipoTransporte, nombre, tipoCarga, valorCarga, clasificacion, fecha];
-
-		let container = document.getElementById('salida');
 
 		if (result[0] > 0 && result[1] > 0) {
 			var precioPorKilo = parseFloat(precioPeso * result[0]);
@@ -346,7 +348,6 @@ function obtenerDatosForm() {
 		li.innerHTML += (`<li>Coeficiente de carga: <span class="badge rounded-pill bg-dark">x ${clasificacion} </span></li>`);
 		li.innerHTML += (`<li>SubTotal sin IVA es: <strong>$${subtotal.toFixed(2)}</strong></li>`);
 
-
 		var iva = parseFloat(subtotal * 0.21);
 		li.innerHTML += (`<li>El IVA es: $${iva.toFixed(2)}</li><br>`);
 
@@ -388,7 +389,6 @@ function obtenerDatosForm() {
 					return fechaFuturaMuestra;
 				}	
 				
-			
 				if ((tipoTransporte == "E") && trayecto <= 250) {
 					var dias = 3;
 					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()} </li><span class="badge rounded-pill bg-success">${dias-1} días</span> destino en radio menor a 250Km<br><br></div>`);
@@ -421,7 +421,6 @@ function obtenerDatosForm() {
 									</div>`);
 																														
 		/*-------- funcion para ver los destinos posibles según distancia ingresada -------------------*/
-
 		var destinos = document.getElementById('destinos');
 
 		if (destinos) {
@@ -429,7 +428,7 @@ function obtenerDatosForm() {
 		}
 
 			function verDestinos() { 
-				let datos = document.getElementById("datos");
+				var datos = document.getElementById("datos");
 				datos.style.opacity = 1;
 
 				let trayecto = parseInt(document.getElementById('inputTrayecto').value);
@@ -472,7 +471,6 @@ function obtenerDatosForm() {
 							}
 							/*------------------------ Cargar registros al localStorge ---------------------------*/
 							var allButtons = document.querySelectorAll('div.card-body button');	
-								//console.log(allButtons);
 								
 								allButtons.forEach(function(btn){
 									btn.addEventListener("click", cargaHistorial);
@@ -567,6 +565,8 @@ function obtenerDatosForm() {
 								},
 								// onClick: function(){} // Callback after click
 							  }).showToast();
+							destinos.disabled = true;  
+							destinos.style.opacity = (.4);  
 							document.getElementById('datosRow').appendChild(listaDestinos);
 							document.getElementById('inputTrayecto').focus();
 						}
@@ -574,8 +574,9 @@ function obtenerDatosForm() {
 			}		
 		
 		return result;
-} 
-/* --------- fin funcion obtenerDatos() -------*/
+
+} /* --------- fin funcion obtenerDatos() -------*/ 
+
 
 /* ------- funciones para botones --------- */
 function recotizar(){
@@ -603,16 +604,29 @@ function cerrar_pagina() {
 }	
 /* ------- fin funciones para botones --------- */
 
-let contenedor = document.getElementById("salida");
+// let contenedor = document.getElementById("salida");
 
-var body = document.getElementById('body');
-body.addEventListener("load",inicio);						
+	const splash = document.querySelector('.splash');
 
-function inicio() {
-	console.log("inicio.....");
-	document.getElementById('inputNombreProducto').focus();
-	document.getElementById('botonSubmit').disabled = true;
-	document.getElementById('botonSubmit').style.opacity = (0.4);
-};
+	const sessionIniciada = sessionStorage.getItem("inicioSplash");
+	
+	if(sessionIniciada){
+		document.getElementById('inputNombreProducto').focus();
+		document.getElementById('botonSubmit').disabled = true;
+		document.getElementById('botonSubmit').style.opacity = (0.4);
+		splash.classList.add('display-none-init');
+	
+	} else {
+		document.addEventListener('DOMContentLoaded', (e)=>{
+			sessionStorage.setItem('inicioSplash', true);
+			
+			setTimeout(()=>{
+				splash.classList.add('display-none');
+			}, 3800);
+			e.preventDefault();
 
-
+			document.getElementById('inputNombreProducto').focus();
+			document.getElementById('botonSubmit').disabled = true;
+			document.getElementById('botonSubmit').style.opacity = (0.4);
+		});
+	};

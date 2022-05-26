@@ -22,7 +22,7 @@ let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');
 				var body = "";
 
 				for (let i = 0; i <= data.length; i++){
-					var serverTime = Math.random()*700;
+					var serverTime = Math.random()*400;
 					await delay(serverTime);
 										
 					if (i < data.length){
@@ -64,7 +64,7 @@ let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');
 				verCentrosDistribucion.disabled = true;
 				verCentrosDistribucion.style.opacity = (0.4);
 
-                setTimeout(btnVolverFocus, 13000);
+                setTimeout(btnVolverFocus, 10000);
 				
                 function btnVolverFocus(){
 					document.getElementById('btnVolver').focus();

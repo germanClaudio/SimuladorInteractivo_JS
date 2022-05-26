@@ -39,7 +39,7 @@ let verCentrosDistribucion = document.getElementById('verCentrosDistribucion');
 				
 			 			document.getElementById('tbodyCentros').innerHTML = body;
 
-					} else if (i = data.length) {
+					} else if (i === data.length) {
 						
 						body += `<tr>
 			 							<td scope="col" colspan="6" class="text-center">

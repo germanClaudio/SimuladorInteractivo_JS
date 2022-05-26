@@ -1,10 +1,10 @@
 /*--- Simulador interactivo Cotizacion Transporte - CoderHouse - Javascript - German Montalbetti -----*/
 /*---------------------------------------- Proyecto Final ------------------------------------------*/
-/**Declaracion de variables */
+/**Declaracion de letiables */
 const precioPeso = 18.25;
 const precioKm = 3.95;
-var descuento = 0;
-var transporte = "";
+let descuento = 0;
+let transporte = "";
 
 /*--------------funcion remover elementos si se ingresan datos erroneos ----------------*/
 function remover() {
@@ -14,13 +14,13 @@ function remover() {
 }
 
 /*------------------ Evento cantidad de caracteres Nombre Producto -----------------------*/
-var inputNombreProducto = document.getElementById('inputNombreProducto');
+let inputNombreProducto = document.getElementById('inputNombreProducto');
 inputNombreProducto.addEventListener("input", validarNombreProducto);
 
 function validarNombreProducto() {
 	
-	var valorNombreProducto = document.getElementById('inputNombreProducto').value;
-	var caracteres = inputNombreProducto.value.length;
+	let valorNombreProducto = document.getElementById('inputNombreProducto').value;
+	let caracteres = inputNombreProducto.value.length;
 	
 	if (valorNombreProducto !== "" || valorNombreProducto !== null) {
 		if (valorNombreProducto.length < 6) {
@@ -45,7 +45,7 @@ function validarNombreProducto() {
 }
 
 /*------------------ Evento limpiar campos Form -----------------------*/
-var clearForm = document.getElementById('reseteo');
+let clearForm = document.getElementById('reseteo');
 clearForm.addEventListener('click', limpiarForm);
 
 function limpiarForm(){
@@ -66,7 +66,7 @@ function limpiarForm(){
 }
 
 /*----------------------------- Evento select -------------------------*/
-var selectTipoCarga = document.getElementById('tipoNivel');
+let selectTipoCarga = document.getElementById('tipoNivel');
 selectTipoCarga.addEventListener('change', habilitarBtnSubmit);
 
 function habilitarBtnSubmit() {
@@ -81,13 +81,13 @@ function habilitarBtnSubmit() {
 }
 
 /*---------------- Evento campo valor declarado ----------------------*/
-var campoValorDeclarado = document.getElementById('inputValorDeclarado');
+let campoValorDeclarado = document.getElementById('inputValorDeclarado');
 campoValorDeclarado.addEventListener("keypress", soloNumerosValorDeclarado, false);
 campoValorDeclarado.addEventListener('input', habilitarCampoValorDeclarado);
 
 function habilitarCampoValorDeclarado() {
 	
-	if (campoValorDeclarado.value == "" || campoValorDeclarado.value == null) {
+	if (campoValorDeclarado.value === "" || campoValorDeclarado.value == null) {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('botonSubmit').style.opacity = (0.4);
 	} else {
@@ -97,7 +97,7 @@ function habilitarCampoValorDeclarado() {
 
 //Solo permite introducir numeros y el "."
 function soloNumerosValorDeclarado(e){
-	var key = window.event ? e.which : e.keyCode;
+	let key = window.event ? e.which : e.keyCode;
 	
 	if (key < 46 || key > 57) {
 	  e.preventDefault();
@@ -105,12 +105,12 @@ function soloNumerosValorDeclarado(e){
   }
 
 /*---------------- Evento campo Peso carga declarado ----------------------*/
-var campoPesoDeclarado = document.getElementById('inputPesoDeclarado');
+let campoPesoDeclarado = document.getElementById('inputPesoDeclarado');
 campoPesoDeclarado.addEventListener('input', habilitarCampoPesoDeclarado);
 campoPesoDeclarado.addEventListener("keypress", soloNumeros, false);
 
 function habilitarCampoPesoDeclarado() {
-	if (campoPesoDeclarado.value == "" || campoPesoDeclarado.value == null) {
+	if (campoPesoDeclarado.value === "" || campoPesoDeclarado.value === null) {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('botonSubmit').style.opacity = (0.4);
 	} else {
@@ -120,7 +120,7 @@ function habilitarCampoPesoDeclarado() {
 
 //Solo permite introducir numeros
 function soloNumeros(e){
-	var key = window.event ? e.which : e.keyCode;
+	let key = window.event ? e.which : e.keyCode;
 	
 	if (key < 48 || key > 57) {
 	  e.preventDefault();
@@ -128,14 +128,14 @@ function soloNumeros(e){
   }
 
 /*----------------------- Evento campo trayecto --------------------------*/
-var campoInputTrayecto = document.getElementById('inputTrayecto');
+let campoInputTrayecto = document.getElementById('inputTrayecto');
 campoInputTrayecto.addEventListener('input', habilitarCampoFecha);
 campoInputTrayecto.addEventListener('keypress', soloNumeros, false);
 campoInputTrayecto.addEventListener('change', habilitarFocus);
 
 function habilitarCampoFecha() {
 
-	if (campoInputTrayecto.value == "" || campoInputTrayecto.value == null) {
+	if (campoInputTrayecto.value === "" || campoInputTrayecto.value === null) {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('botonSubmit').style.opacity = (0.4);
 		 
@@ -150,12 +150,12 @@ function habilitarFocus(){
 
 
 /*----------------------- Evento campo fecha --------------------------*/
-var campoInputFecha = document.getElementById('fecha');
+let campoInputFecha = document.getElementById('fecha');
 campoInputFecha.addEventListener('change', habilitarBotonSubmit);
 
 function habilitarBotonSubmit() {
 
-	if (campoInputFecha.value == "" || campoInputFecha.value == null) {
+	if (campoInputFecha.value === "" || campoInputFecha.value === null) {
 		document.getElementById('botonSubmit').disabled = true;
 		document.getElementById('botonSubmit').style.opacity = (0.4);
 		
@@ -167,18 +167,18 @@ function habilitarBotonSubmit() {
 
 
 /*------ Evento limitar fecha de salida carga no menor a hoy -----------*/
-var limitarFecha = document.getElementById('fecha');
+let limitarFecha = document.getElementById('fecha');
 limitarFecha.addEventListener('click', limitarMinMaxFechaHoy);
 
 function limitarMinMaxFechaHoy(){
-	var today = new Date().toISOString().slice(0, -14);
-	var tomorrow = new Date();
+	let today = new Date().toISOString().slice(0, -14);
+	let tomorrow = new Date();
 	
-	var limiteFechaFutura = tomorrow.setTime(tomorrow.getTime() + 15 * 24 * 60 * 60 * 1000); // 15 días desde hoy.
+	let limiteFechaFutura = tomorrow.setTime(tomorrow.getTime() + 15 * 24 * 60 * 60 * 1000); // 15 días desde hoy.
 
-	var tomorrowDate = new Date(limiteFechaFutura).toISOString().slice(0, -14);
+	let tomorrowDate = new Date(limiteFechaFutura).toISOString().slice(0, -14);
 	
-	var input = document.getElementById('fecha');
+	let input = document.getElementById('fecha');
 	input.setAttribute('min', today);
 	input.setAttribute('max', tomorrowDate);
 
@@ -197,16 +197,16 @@ class Producto {
 	generarConstTipo() {
 		let tipoCarga = [];
 
-		if (this.tipo == "normal"){
+		if (this.tipo === "normal"){
 			tipoCarga = [1, "Normal", "success"];
 		}
-		else if (this.tipo == "fragil") {
+		else if (this.tipo === "fragil") {
 			tipoCarga = [2, "Frágil", "primary"];
 		} 
-		else if (this.tipo == "cuidado"){
+		else if (this.tipo === "cuidado"){
 			tipoCarga = [3, "Requiere Conservación", "warning"];
 		}
-		else if (this.tipo == "peligro") {
+		else if (this.tipo === "peligro") {
 			tipoCarga = [5, "Peligroso", "danger"];
 		}
 		return tipoCarga;
@@ -260,12 +260,12 @@ class Producto {
 	}
 }
 
-var tipoNivel = document.getElementById('tipoNivel');
+let tipoNivel = document.getElementById('tipoNivel');
 tipoNivel.addEventListener("change", update);
 
 function update() {
-	var select = document.getElementById('tipoNivel');
-	var option = select.options[select.selectedIndex];
+	let select = document.getElementById('tipoNivel');
+	let option = select.options[select.selectedIndex];
 	
 	if (option.value != null) {
 	document.getElementById('valorTipoNivel').value = option.value;
@@ -273,41 +273,41 @@ function update() {
 	}
 }
 
-var botonSubmit = document.getElementById('botonSubmit');
+let botonSubmit = document.getElementById('botonSubmit');
 botonSubmit.addEventListener("click", obtenerDatosForm);
 
 
 /**--------------------- funcion para obtener datos del form ------------------------------- */
 function obtenerDatosForm() {
 
-		var pesoCarga = document.getElementById('inputPesoDeclarado').value;
-		var trayecto = document.getElementById('inputTrayecto').value;
-		var tipoTransporteExclusivo = document.getElementById('gridRadios1').value;
-		var tipoTransporteComun = document.getElementById('gridRadios2').value;
-		var container = document.getElementById('salida');
-		var tipoTransporte;
+		let pesoCarga = document.getElementById('inputPesoDeclarado').value;
+		let trayecto = document.getElementById('inputTrayecto').value;
+		let tipoTransporteExclusivo = document.getElementById('gridRadios1').value;
+		let tipoTransporteComun = document.getElementById('gridRadios2').value;
+		let container = document.getElementById('salida');
+		let tipoTransporte;
 		
 		document.getElementById('gridRadios1').checked ? tipoTransporte=tipoTransporteExclusivo : tipoTransporte=tipoTransporteComun;
 		
-		var nombreProducto = document.getElementById('inputNombreProducto').value;
-		var tiponivel = update();
-		var valordeclarado = document.getElementById('inputValorDeclarado').value;
+		let nombreProducto = document.getElementById('inputNombreProducto').value;
+		let tiponivel = update();
+		let valordeclarado = document.getElementById('inputValorDeclarado').value;
 
-		var transporte1 = new Producto(	nombreProducto,
+		let transporte1 = new Producto(	nombreProducto,
 										tiponivel,
 										valordeclarado,
 										);
-		var nombre = transporte1.nombre;
-		var tipoCarga = transporte1.generarConstTipo(transporte1.tipo);
-		var valorCarga = transporte1.generarConstValor(transporte1.valor);
-		var clasificacion = transporte1.generarClasificacion(tipoCarga, valorCarga);
-				
-		var fecha = document.getElementById('fecha').value;
+		let nombre = transporte1.nombre;
+		let tipoCarga = transporte1.generarConstTipo(transporte1.tipo);
+		let valorCarga = transporte1.generarConstValor(transporte1.valor);
+		let clasificacion = transporte1.generarClasificacion(tipoCarga, valorCarga);
+		let precioPorKilo = 0;
+		let fecha = document.getElementById('fecha').value;
 		
-		var result = [pesoCarga, trayecto, tipoTransporte, nombre, tipoCarga, valorCarga, clasificacion, fecha];
+		let result = [pesoCarga, trayecto, tipoTransporte, nombre, tipoCarga, valorCarga, clasificacion, fecha];
 
 		if (result[0] > 0 && result[1] > 0) {
-			var precioPorKilo = parseFloat(precioPeso * result[0]);
+			let precioPorKilo = parseFloat(precioPeso * result[0]);
 			
 			container.innerHTML = (`<ul id="ul">
 										<li>Precio por carga <span class="badge bg-secondary"> ${result[0]} Kg.</span> es: $${precioPorKilo.toFixed(2)}</li>
@@ -334,50 +334,50 @@ function obtenerDatosForm() {
 			  remover();
 		}
 
-		var precioPorKilometro = parseFloat(result[1] * precioKm);
+		let precioPorKilometro = parseFloat(result[1] * precioKm);
 		
 		let ul = document.getElementById('ul');
 		let li = document.createElement('li');
 		
 		li.innerHTML = (`Precio por distancia <span class="badge bg-primary"> ${result[1]} Km.</span> es: $ ${precioPorKilometro.toFixed(2)} <br>`);
 		
-		var subtotal = parseFloat((precioPorKilo + precioPorKilometro) * clasificacion);
+		let subtotal = parseFloat((precioPorKilo + precioPorKilometro) * clasificacion);
 	
-		li.innerHTML += (`<li>Tipo de carga declarada: <span class="badge bg-${tipoCarga[2]} "> ${tipoCarga[1]} </span></li>`);
-		li.innerHTML += (`<li>Valor de carga declarada: <strong>$ ${valorCarga[1]} </strong></li>`);
-		li.innerHTML += (`<li>Coeficiente de carga: <span class="badge rounded-pill bg-dark">x ${clasificacion} </span></li>`);
-		li.innerHTML += (`<li>SubTotal sin IVA es: <strong>$${subtotal.toFixed(2)}</strong></li>`);
+		li.innerHTML += (`<li>Tipo de carga declarada: <span class="badge bg-${tipoCarga[2]} "> ${tipoCarga[1]} </span></li>
+						  <li>Valor de carga declarada: <strong>$ ${valorCarga[1]} </strong></li>
+						  <li>Coeficiente de carga: <span class="badge rounded-pill bg-dark">x ${clasificacion} </span></li>
+						  <li>SubTotal sin IVA es: <strong>$${subtotal.toFixed(2)}</strong></li>`);
 
-		var iva = parseFloat(subtotal * 0.21);
+		let iva = parseFloat(subtotal * 0.21);
 		li.innerHTML += (`<li>El IVA es: $${iva.toFixed(2)}</li><br>`);
 
 		ul.appendChild(li);
 
-		if (tipoTransporte == "E") {
+		if (tipoTransporte === "E") {
 			transporte = "Exclusivo";
 			li.innerHTML += (`<li>Tipo de transporte: <span class="badge bg-danger"> ${transporte} </span> (No posee descuento)</li>`);
 		} else {
 			descuento = parseFloat(precioPorKilometro * 0.055);
 			transporte = "Común";
-			li.innerHTML += (`<li>Tipo de transporte: <span class="badge bg-success"> ${transporte}</span></li>`);
-			li.innerHTML += (`<li>Descuento es de: $${descuento.toFixed(2)}</li><br>`);
+			li.innerHTML += (`<li>Tipo de transporte: <span class="badge bg-success"> ${transporte}</span></li>
+							  <li>Descuento es de: $${descuento.toFixed(2)}</li><br>`);
 		} 
 		
 
 		function calculoFechaEntrega() {
-			var dateTime = luxon.DateTime;
-			var dt = dateTime.now();
-			var fechaActual = dt.toLocaleString(dateTime.DATETIME_SHORT);
+			let dateTime = luxon.DateTime;
+			let dt = dateTime.now();
+			let fechaActual = dt.toLocaleString(dateTime.DATETIME_SHORT);
 				
-				li.innerHTML += (`<li>Fecha ingreso pedido (actual): ${fechaActual} hs</li>`);
-				li.innerHTML += (`<li>Fecha salida carga: ${result[7]}</li>`);
+				li.innerHTML += (`<li>Fecha ingreso pedido (actual): ${fechaActual} hs</li>
+								  <li>Fecha salida carga: ${result[7]}</li>`);
 							
 			/* -------Funcion para mostrar la fecha de entrega a partir de hoy según tipoTransporte y distancia -------*/
-				const fechaFutura = () => {
-					var futuro = new Date(result[7]);
+				const fechaFutura = (dias) => {
+					let futuro = new Date(result[7]);
 					futuro.setDate(futuro.getDate() + dias);
 
-					var dia = futuro.getDate(),
+					let dia = futuro.getDate(),
 						mes = futuro.getMonth() + 1, 
 						anio = futuro.getFullYear(),
 						fechaFuturaMuestra;
@@ -390,26 +390,26 @@ function obtenerDatosForm() {
 				}	
 				
 				if ((tipoTransporte == "E") && trayecto <= 250) {
-					var dias = 3;
+					let dias = 3;
 					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()} </li><span class="badge rounded-pill bg-success">${dias-1} días</span> destino en radio menor a 250Km<br><br></div>`);
 				}
 				else if ((tipoTransporte == "E") && trayecto > 250 ) {
-					var dias = 4;
+					let dias = 4;
 					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-info"> ${dias-1} días</span> destino en radio mayor a 250Km<br><br></div>`);
 				}
 				else if ((tipoTransporte == "C") && trayecto <= 250 ) {
-					var dias = 6;
+					let dias = 6;
 					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-dark"> ${dias-1} días</span> destino en radio menor a 250Km<br><br></div>`);
 				}
 				else {
-					var dias = 8;
+					let dias = 8;
 					li.innerHTML += (`<li>Fecha entrega carga: ${fechaFutura()}</li><span class="badge rounded-pill bg-danger"> ${dias-1} días</span> destino en radio mayor a 250Km<br><br></div>`);
 				}
 			};
 
 			calculoFechaEntrega();
 
-			var precioTotal = parseFloat(subtotal + iva - descuento).toFixed(2);
+			let precioTotal = parseFloat(subtotal + iva - descuento).toFixed(2);
 			
 			container.innerHTML += (`<div class="w-50 p-2 alert alert-primary mx-auto" role="alert">
 										El <b>Precio Total</b> del transporte del producto<br><strong> ${result[3]} </strong><br>es: <strong>$ ${precioTotal} </strong>
@@ -421,14 +421,14 @@ function obtenerDatosForm() {
 									</div>`);
 																														
 		/*-------- funcion para ver los destinos posibles según distancia ingresada -------------------*/
-		var destinos = document.getElementById('destinos');
+		let destinos = document.getElementById('destinos');
 
 		if (destinos) {
 		destinos.addEventListener("click", verDestinos);
 		}
 
 			function verDestinos() { 
-				var datos = document.getElementById("datos");
+				let datos = document.getElementById("datos");
 				datos.style.opacity = 1;
 
 				let trayecto = parseInt(document.getElementById('inputTrayecto').value);
@@ -470,7 +470,7 @@ function obtenerDatosForm() {
 								document.getElementById('datos').appendChild(listaDestinos);
 							}
 							/*------------------------ Cargar registros al localStorge ---------------------------*/
-							var allButtons = document.querySelectorAll('div.card-body button');	
+							let allButtons = document.querySelectorAll('div.card-body button');	
 								
 								allButtons.forEach(function(btn){
 									btn.addEventListener("click", cargaHistorial);
@@ -481,15 +481,15 @@ function obtenerDatosForm() {
 									}
 									
 									function cargaHistorial(e) {
-										var indice = parseInt(e.target.id);
-										var keyStorage = "Historial";  
-										var historialLocalStorage = localStorage.getItem(`${keyStorage}`);
+										let indice = parseInt(e.target.id);
+										let keyStorage = "Historial";  
+										let historialLocalStorage = localStorage.getItem(`${keyStorage}`);
 										let arrayHistorial = [];
-										var dateTime = luxon.DateTime;
-										var dt = dateTime.now();
-										var fechaActual = dt.toLocaleString(dateTime.DATETIME_SHORT);
+										let dateTime = luxon.DateTime;
+										let dt = dateTime.now();
+										let fechaActual = dt.toLocaleString(dateTime.DATETIME_SHORT);
 								
-										var resulta2 = [
+										let resulta2 = [
 											{id: generateRandomInteger(100, 99999),
 											nombre: nombre,
 											tipoDeCarga: tiponivel,
@@ -583,7 +583,7 @@ function recotizar(){
 		location.reload('index.html');
 }
 		
-var btnSalida = document.getElementById('cerrarPagina');
+let btnSalida = document.getElementById('cerrarPagina');
 btnSalida.addEventListener('click',cerrar_pagina);
 
 function cerrar_pagina() {

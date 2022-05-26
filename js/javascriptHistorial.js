@@ -6,7 +6,9 @@ let verHistorial = document.getElementById('verHistorial');
 let borrarHistorial = document.getElementById('borrarHistorial');
 let borrarRegistro = document.getElementById('borrarRegistro');
 let alertas = document.getElementById('alertas');
-var datosHistorial = JSON.parse(localStorage.getItem('Historial'));
+let datosHistorial = JSON.parse(localStorage.getItem('Historial'));
+let banderaTipoTransporte = "";
+let banderaTipoCarga = "";
 
 verHistorial.addEventListener('click', mostarStorage);
 
@@ -28,7 +30,7 @@ function mostarStorage() {
 
     async function simulacion() {
       for (const dato of datosHistorial) {
-        var serverTime = Math.random() * 700;
+        let serverTime = Math.random() * 700;
         await delay(serverTime);
         if (datosHistorial) {
 
@@ -67,6 +69,7 @@ function mostarStorage() {
     borrarHistorial.disabled = false;
     borrarHistorial.style.opacity = (1);
   } else {
+    verDatosHistorial.innerHTML = "";
     verDatosHistorial.innerHTML += (`<tr>
                                         <td scope="col" colspan="11" class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> No existen datos que mostrar en esta tabla</td> 
                                      </tr>`);
@@ -108,6 +111,7 @@ borrarHistorial.addEventListener('click', () => {
         'El localStorage fue eliminado completamente.',
         'success'
       )
+      mostarStorage();
     }
   });
 });
@@ -115,14 +119,14 @@ borrarHistorial.addEventListener('click', () => {
 borrarRegistro.addEventListener('click', () => {
   let contador = 0;
   alertas.innerHTML = "";
-  var datosHistorial = JSON.parse(localStorage.getItem('Historial'));
+  let datosHistorial = JSON.parse(localStorage.getItem('Historial'));
   arrayIndex = [];
   for (const dato of datosHistorial) {
 
     if (document.getElementById(dato[0].id).checked) {
 
-      var index = datosHistorial.findIndex(id => id === dato);
-      var variabledato = dato[0].id;
+      let index = datosHistorial.findIndex(id => id === dato);
+      let variabledato = dato[0].id;
 
       if (index !== -1) {
         confirmDelete(index, variabledato, contador);

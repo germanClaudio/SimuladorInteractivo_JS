@@ -598,8 +598,8 @@ function cerrar_pagina() {
 		confirmButtonText: 'Si, Salir'
 	  }).then((result) => {
 		if (result.isConfirmed) {
-			window.close();
-		}
+			window.open("./pages/splashout.html", '_self');
+		};
 	});
 }	
 /* ------- fin funciones para botones --------- */

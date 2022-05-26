@@ -68,7 +68,9 @@ function mostarStorage() {
     verHistorial.style.opacity = (0.4);
     borrarHistorial.disabled = false;
     borrarHistorial.style.opacity = (1);
+
   } else {
+    
     verDatosHistorial.innerHTML = "";
     verDatosHistorial.innerHTML += (`<tr>
                                         <td scope="col" colspan="11" class="text-center"><i class="fa fa-info-circle" aria-hidden="true"></i> No existen datos que mostrar en esta tabla</td> 
